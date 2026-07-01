@@ -70,7 +70,7 @@ That is the loop.
 
 ## Status
 
-`v0.1.1`: usable manual JudgeLoop kit.
+`v0.1.3`: usable manual JudgeLoop kit.
 
 This is intentionally small: repo memory, prompts, stricter doctor checks, an
 installable skill, a tiny CLI wrapper, and a runnable demo. Headless automation
