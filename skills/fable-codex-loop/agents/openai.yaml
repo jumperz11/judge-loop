@@ -1,0 +1,4 @@
+interface:
+  display_name: "Fable Codex Loop"
+  short_description: "Run Fable as architect/judge and Codex as builder with repo memory."
+  default_prompt: "Set up or run the Fable + Codex scarce-architect build loop for this repo."
