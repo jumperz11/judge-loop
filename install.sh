@@ -44,7 +44,7 @@ for skill in "$SRC_ROOT"/*/; do
 done
 
 if command -v codex >/dev/null 2>&1; then
-    echo "Codex CLI found: $(codex --version)"
+    echo "Codex CLI found: $(command -v codex)"
 else
     echo "Codex CLI not found. Install it if you want headless dispatch."
 fi

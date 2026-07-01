@@ -36,8 +36,8 @@ Get-ChildItem -Directory $SrcRoot | ForEach-Object {
     Write-Host "Installed $($_.Name) to $Dest"
 }
 
-if (Get-Command codex -ErrorAction SilentlyContinue) {
-    Write-Host "Codex CLI found: $(codex --version)"
+if ($CodexCommand = Get-Command codex -ErrorAction SilentlyContinue) {
+    Write-Host "Codex CLI found: $($CodexCommand.Source)"
 } else {
     Write-Host "Codex CLI not found. Install it if you want headless dispatch."
 }

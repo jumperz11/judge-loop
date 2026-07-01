@@ -44,7 +44,7 @@ deciding what deserves to be typed.
 git clone https://github.com/jumperz11/judge-loop
 cd your-project
 python3 /path/to/judge-loop/scripts/init.py .
-# edit docs/NEXT_SLICE.md
+# fill docs/NEXT_SLICE.md and freeze docs/gates/<slice>.md
 python3 /path/to/judge-loop/scripts/doctor.py .
 ```
 
@@ -52,7 +52,7 @@ Or use the tiny wrapper:
 
 ```bash
 /path/to/judge-loop/bin/judgeloop init .
-# edit docs/NEXT_SLICE.md
+# fill docs/NEXT_SLICE.md and freeze docs/gates/<slice>.md
 /path/to/judge-loop/bin/judgeloop doctor .
 ```
 
@@ -70,7 +70,7 @@ That is the loop.
 
 ## Status
 
-`v0.1.0`: usable manual JudgeLoop kit.
+`v0.1.1`: usable manual JudgeLoop kit.
 
 This is intentionally small: repo memory, prompts, stricter doctor checks, an
 installable skill, a tiny CLI wrapper, and a runnable demo. Headless automation
@@ -186,9 +186,9 @@ docs/prd/
 docs/research/
 ```
 
-### 4. Write one small slice
+### 4. Write one small slice and gate file
 
-Edit:
+Edit the next objective:
 
 ```txt
 docs/NEXT_SLICE.md
@@ -205,6 +205,15 @@ Out of scope:
 - metrics
 - deployment
 ```
+
+Then freeze the acceptance criteria in:
+
+```txt
+docs/gates/<slice>.md
+```
+
+Freshly initialized repos are expected to be `NOT READY` until placeholders are
+filled, a gate file exists, and the required evidence docs are no longer blank.
 
 ### 5. Check readiness
 
