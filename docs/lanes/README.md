@@ -17,3 +17,5 @@ Reports are evidence, not verdicts. They should contain:
 - final lane status
 
 The builder reports evidence. Fable gives verdicts. The human decides.
+
+See [`SCHEMA.md`](SCHEMA.md) for the minimal required status format.

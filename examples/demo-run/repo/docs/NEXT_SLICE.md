@@ -12,6 +12,7 @@
 | Builder | `GPT-5.5 Codex` |
 | Architect checkpoint | `Fable` |
 | Human judge | `human` |
+| Frozen gate file | `docs/gates/S-002.md` |
 
 ## Acceptance criteria
 
@@ -19,6 +20,10 @@
 | --- | --- | --- |
 | `AC-001` | `/health` test asserts JSON content type. | `node --test`, exit 0 |
 | `AC-002` | No production behavior changes beyond tests unless test exposes a real defect. | `git diff` |
+
+## Gate file
+
+The frozen gate file for this slice is `docs/gates/S-002.md`.
 
 ## Explicit out-of-scope
 

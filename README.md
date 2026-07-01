@@ -2,10 +2,14 @@
 
 > **Fable decides. A builder builds. The repo remembers. You judge.**
 
-Use Claude Fable 5 as the architect and judge. Use any capable LLM as the
-builder. GPT-5.5 Codex is the default example because it is fast, strong in the
-terminal, and easy to run on a subscription, but the loop does not depend on one
-builder model.
+JudgeLoop is a repo-local evidence protocol for AI-built software.
+
+Use a strong model as the architect and judge. Use any capable LLM as the
+builder. Freeze the gates before coding. Make the builder report raw evidence.
+Never let the builder grade itself.
+
+Fable is the recommended architect example. GPT-5.5 Codex is the default
+builder example. The protocol does not depend on either one.
 
 Codex, Opus, GLM, Kimi, DeepSeek, Qwen, or any other LLM can fill the builder
 role as long as it can edit files, run checks, or produce patches with raw
@@ -14,21 +18,39 @@ evidence back to the repo.
 [![Repo](https://img.shields.io/badge/GitHub-jumperz11%2Fjudge--loop-181717?logo=github)](https://github.com/jumperz11/judge-loop)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-```txt
-[FABLE] writes the spec and judges evidence
-   |
-   v
-[BUILDER] builds, tests, and records raw results
-   |
-   v
-[REPO DOCS] remember decisions, contracts, gates, and handoffs
-   |
-   v
-[YOU] make the final kill / continue call
+```mermaid
+flowchart LR
+    A["Architect Model<br/>specs, gates, disagreements"] --> B["Builder LLM<br/>code, tests, raw evidence"]
+    B --> C["Repo Memory<br/>handoff, contracts, gates, lanes"]
+    C --> D["Judge Pass<br/>evidence vs frozen gates"]
+    D --> E["Human<br/>kill / continue"]
+    E --> A
 ```
 
 The point is simple: do not spend frontier-model time on typing. Spend it on
 deciding what deserves to be typed.
+
+---
+
+## 30-Second Version
+
+```bash
+git clone https://github.com/jumperz11/judge-loop
+cd your-project
+python3 /path/to/judge-loop/scripts/init.py .
+# edit docs/NEXT_SLICE.md
+python3 /path/to/judge-loop/scripts/doctor.py .
+```
+
+Then:
+
+1. Paste [`prompts/01-fable-architect.md`](prompts/01-fable-architect.md) into your architect model.
+2. Paste the returned block into your builder LLM.
+3. Builder writes evidence to `docs/HANDOFF.md` and `docs/lanes/`.
+4. Paste [`prompts/03-fable-review.md`](prompts/03-fable-review.md) into the architect.
+5. Architect judges raw evidence against frozen gates and writes the next slice.
+
+That is the loop.
 
 ---
 
@@ -54,6 +76,29 @@ Skip it for tiny edits.
 
 ---
 
+## What JudgeLoop Enforces
+
+```mermaid
+flowchart TD
+    S["docs/NEXT_SLICE.md<br/>one PR-sized mission"] --> G["docs/gates/S-001.md<br/>frozen before coding"]
+    G --> B["Builder run<br/>disagree first, build only declared files"]
+    B --> L["docs/lanes/S-001-lane-1.md<br/>raw commands, exits, files touched"]
+    L --> H["docs/HANDOFF.md<br/>latest repo memory"]
+    H --> J["Architect review<br/>PASS / FAIL / PARTIAL"]
+```
+
+The enforcement is intentionally boring:
+
+| Artifact | What it prevents |
+| --- | --- |
+| `docs/gates/<slice>.md` | Moving success criteria after results exist. |
+| `docs/lanes/<slice>-<lane>.md` | Builder claims without raw evidence. |
+| `docs/HANDOFF.md` | Losing project state in chat history. |
+| `scripts/doctor.py` | Starting a run with missing or placeholder memory. |
+| Fable review prompt | Builder self-grading. |
+
+---
+
 ## First Run
 
 ### 1. Clone
@@ -74,6 +119,9 @@ Windows:
 ```powershell
 .\install.ps1
 ```
+
+Existing skill folders are backed up automatically. Use `--force` or `-Force`
+only when you want to replace without a backup.
 
 ### 3. Add loop memory to your project
 
@@ -182,6 +230,37 @@ Repeat.
 
 ---
 
+## Runnable Demo
+
+The demo is a tiny Node HTTP service called `pingbox`.
+
+```bash
+cd examples/demo-run/repo
+npm test
+```
+
+It includes real source and tests:
+
+```txt
+examples/demo-run/repo/
+|-- package.json
+|-- src/server.js
+|-- test/server.test.js
+`-- docs/
+    |-- gates/S-001.md
+    |-- gates/S-002.md
+    `-- lanes/S-001-lane-1.md
+```
+
+Validate the demo memory:
+
+```bash
+cd /path/to/judge-loop
+python3 scripts/doctor.py examples/demo-run/repo
+```
+
+---
+
 ## The Core Files
 
 | File | Purpose |
@@ -197,6 +276,7 @@ Repeat.
 | [`docs/EVALS.md`](docs/EVALS.md) | Scoreboard for success gates. |
 | [`docs/gates/`](docs/gates/) | Per-slice frozen gate files. |
 | [`docs/lanes/`](docs/lanes/) | Per-lane builder reports. |
+| [`docs/lanes/SCHEMA.md`](docs/lanes/SCHEMA.md) | Minimal lane-report schema and status values. |
 
 If it is not in repo docs, it did not happen.
 
@@ -243,6 +323,7 @@ make validate
 This checks:
 
 - demo repo memory
+- demo source tests
 - Python scripts
 - skill metadata
 - markdown links

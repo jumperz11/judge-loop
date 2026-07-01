@@ -3,7 +3,7 @@
 Project: `pingbox`, a tiny Node HTTP service. The team wants a health endpoint
 for uptime checks before they wire monitoring.
 
-## Repo state
+## Repo state before JudgeLoop memory
 
 ```txt
 pingbox/
@@ -16,4 +16,5 @@ pingbox/
 
 > "Add a /health endpoint that returns JSON status and uptime, with a test."
 
-Nothing is in `docs/` yet. First action: `make init`, then fill `docs/NEXT_SLICE.md`.
+Nothing is in `docs/` yet. First action: run `scripts/init.py`, then fill
+`docs/NEXT_SLICE.md`.

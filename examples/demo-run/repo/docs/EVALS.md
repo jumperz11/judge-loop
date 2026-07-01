@@ -1,6 +1,7 @@
 # EVALS
 
 > The scoreboard. Success criteria must be frozen before results exist.
+> Per-slice gate files live in `docs/gates/`.
 
 ## Current slice gates
 

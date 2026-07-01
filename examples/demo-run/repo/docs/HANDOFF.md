@@ -10,6 +10,8 @@
 | Owner | `human` |
 | Current objective | Add a health endpoint for uptime checks. |
 | Current slice | `S-001 add GET /health` |
+| Frozen gate file | `docs/gates/S-001.md` |
+| Lane reports | `docs/lanes/S-001-lane-1.md` |
 | Last updated | `2026-06-22 12:30 Africa/Tunis` |
 
 ## Current state
@@ -41,6 +43,8 @@
 | `test/server.test.js` | modified | `lane-1` | Added `/health` assertions. |
 | `docs/CONTRACTS.md` | modified | `lane-1` | Frozen route contract. |
 | `docs/EVALS.md` | modified | `lane-1` | Frozen gates. |
+| `docs/gates/S-001.md` | added | `architect` | Frozen before implementation. |
+| `docs/lanes/S-001-lane-1.md` | added | `lane-1` | Raw lane report. |
 
 ## Commands run
 
@@ -53,6 +57,12 @@
 | Contract | File | Status | Notes |
 | --- | --- | --- | --- |
 | `GET /health` | `docs/CONTRACTS.md` | changed | Added and frozen before coding. |
+
+## Frozen gates touched
+
+| Gate file | Status | Notes |
+| --- | --- | --- |
+| `docs/gates/S-001.md` | unchanged after freeze | Builder did not edit frozen gates. |
 
 ## Disagreements raised
 

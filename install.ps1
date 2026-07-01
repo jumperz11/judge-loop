@@ -1,5 +1,6 @@
 param(
-    [switch]$Project
+    [switch]$Project,
+    [switch]$Force
 )
 
 $ErrorActionPreference = "Stop"
@@ -16,11 +17,20 @@ if ($Project) {
 }
 
 New-Item -ItemType Directory -Force -Path $DestRoot | Out-Null
+Write-Host "Installing JudgeLoop skills to: $DestRoot"
 
 Get-ChildItem -Directory $SrcRoot | ForEach-Object {
     $Dest = Join-Path $DestRoot $_.Name
     if (Test-Path $Dest) {
-        Remove-Item -Recurse -Force $Dest
+        if ($Force) {
+            Remove-Item -Recurse -Force $Dest
+            Write-Host "Removed existing $Dest (-Force)"
+        } else {
+            $Stamp = Get-Date -Format "yyyyMMddHHmmss"
+            $Backup = "$Dest.backup.$Stamp"
+            Move-Item $Dest $Backup
+            Write-Host "Backed up existing $Dest to $Backup"
+        }
     }
     Copy-Item -Recurse $_.FullName $Dest
     Write-Host "Installed $($_.Name) to $Dest"

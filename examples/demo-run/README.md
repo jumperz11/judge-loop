@@ -16,3 +16,10 @@ Validate the example's memory:
 ```bash
 python3 scripts/doctor.py examples/demo-run/repo
 ```
+
+Run the demo project's tests:
+
+```bash
+cd examples/demo-run/repo
+npm test
+```
