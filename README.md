@@ -1,4 +1,4 @@
-# Fable + Builder Loop
+# JudgeLoop
 
 > **Fable decides. A builder builds. The repo remembers. You judge.**
 
@@ -11,7 +11,7 @@ Codex, Opus, GLM, Kimi, DeepSeek, Qwen, or any other LLM can fill the builder
 role as long as it can edit files, run checks, or produce patches with raw
 evidence back to the repo.
 
-[![Repo](https://img.shields.io/badge/GitHub-jumperz11%2Ffable--codex--loop-181717?logo=github)](https://github.com/jumperz11/fable-codex-loop)
+[![Repo](https://img.shields.io/badge/GitHub-jumperz11%2Fjudge--loop-181717?logo=github)](https://github.com/jumperz11/judge-loop)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 ```txt
@@ -59,8 +59,8 @@ Skip it for tiny edits.
 ### 1. Clone
 
 ```bash
-git clone https://github.com/jumperz11/fable-codex-loop
-cd fable-codex-loop
+git clone https://github.com/jumperz11/judge-loop
+cd judge-loop
 ```
 
 ### 2. Optional: install the Codex skill
@@ -80,7 +80,7 @@ Windows:
 From inside the project you want to work on:
 
 ```bash
-python3 /path/to/fable-codex-loop/scripts/init.py .
+python3 /path/to/judge-loop/scripts/init.py .
 ```
 
 This creates:
@@ -120,7 +120,7 @@ Out of scope:
 ### 5. Check readiness
 
 ```bash
-python3 /path/to/fable-codex-loop/scripts/doctor.py .
+python3 /path/to/judge-loop/scripts/doctor.py .
 ```
 
 If it says `READY`, start the loop.
@@ -253,7 +253,7 @@ This checks:
 ## What Is Included
 
 ```txt
-fable-codex-loop/
+judge-loop/
 |-- README.md
 |-- Makefile
 |-- install.sh
@@ -261,7 +261,7 @@ fable-codex-loop/
 |-- docs/
 |-- prompts/
 |-- scripts/
-|-- skills/fable-codex-loop/
+|-- skills/judge-loop/
 |-- examples/demo-run/
 |-- templates/
 `-- tests/

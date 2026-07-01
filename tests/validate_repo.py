@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Sanity checks for the fable-codex-loop repo. Stdlib only."""
+"""Sanity checks for the JudgeLoop repo. Stdlib only."""
 from __future__ import annotations
 
 import re

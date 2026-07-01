@@ -8,7 +8,7 @@
 | --- | --- |
 | Current slice | `S-001` |
 | Freeze timestamp | `2026-06-22 12:20 Africa/Tunis` |
-| Frozen by | `Fable + Builder` |
+| Frozen by | `Architect + Builder` |
 | Can change this slice? | `No, unless human explicitly approves` |
 
 ## Public interfaces

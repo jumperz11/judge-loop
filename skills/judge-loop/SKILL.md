@@ -1,9 +1,9 @@
 ---
-name: fable-codex-loop
-description: Run the Fable + Builder scarce-architect loop for software projects. Use when the user wants Claude Fable 5 to act as architect, judge, scope killer, or checkpoint; Codex, Opus, GLM, Kimi, DeepSeek, Qwen, or any other LLM to act as builder; repo docs to act as persistent memory; PR-sized slice planning; mandatory disagreement; frozen contracts; evaluator gates; reviewer lanes; raw handoffs; or a shareable AI workflow.
+name: judge-loop
+description: Run JudgeLoop for software projects. Use when the user wants Claude Fable 5 or another strong model to act as architect, judge, scope killer, or checkpoint; Codex, Opus, GLM, Kimi, DeepSeek, Qwen, or any other LLM to act as builder; repo docs to act as persistent memory; PR-sized slice planning; mandatory disagreement; frozen contracts; evaluator gates; reviewer lanes; raw handoffs; or a shareable AI workflow.
 ---
 
-# Fable + Builder Loop
+# JudgeLoop
 
 Use this skill to run or set up the workflow:
 
