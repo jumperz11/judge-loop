@@ -61,8 +61,7 @@ From your `judge-loop` checkout:
 export PATH="$PWD/bin:$PATH"
 ```
 
-Then `judgeloop init .`, `judgeloop doctor .`, and `judgeloop validate .` work
-from your shell.
+Then `judgeloop init .` and `judgeloop doctor .` work from your shell.
 
 Then:
 
@@ -78,7 +77,7 @@ That is the loop.
 
 ## Status
 
-`v0.1.4`: usable manual JudgeLoop kit.
+`v0.1.5`: usable manual JudgeLoop kit.
 
 This is intentionally small: repo memory, prompts, stricter doctor checks, an
 installable skill, a tiny CLI wrapper, and a runnable demo. Headless automation
