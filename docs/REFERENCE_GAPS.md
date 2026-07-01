@@ -19,13 +19,13 @@ Notes from comparing this kit with `DanMcInerney/architect-loop`.
 | Tiny CLI wrapper | `bin/judgeloop init`, `doctor`, `validate` | Makes the kit feel like a tool without hiding the simple scripts. |
 | Product/research artifacts | `docs/prd/`, `docs/research/` | Keeps research and product decisions out of the handoff file. |
 | Headless dispatch guide | `prompts/04-headless-dispatch.md` | Optional path for `codex exec`, worktrees, and unattended lanes. |
-| Research checkpoint | `prompts/05-fable-research.md` | Keeps discovery work separate from build work. |
+| Research checkpoint | `prompts/05-research-checkpoint.md` | Keeps discovery work separate from build work. |
 
 ## Intentionally Kept Simpler
 
 | Reference feature | Decision here | Why |
 | --- | --- | --- |
-| Always architect-owned worktree fan-out | Optional advanced mode | The main audience should succeed with paste-ready Fable + builder flow first. |
+| Always architect-owned worktree fan-out | Optional advanced mode | The main audience should succeed with paste-ready architect + builder flow first. |
 | Long cited design manifesto | Short README + gap notes | This repo is meant to be a usable kit and post companion, not a research paper. |
 | Separate installed research skill | One optional research prompt inside the same kit | Avoids making research feel mandatory for every build slice. |
 | Hard dependency on headless `codex exec` | Manual `/goal` mode first | Your original idea is subscription-native and easy to run without automation. |

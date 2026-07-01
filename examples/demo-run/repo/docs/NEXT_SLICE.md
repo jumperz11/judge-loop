@@ -10,7 +10,7 @@
 | Title | Document CLI wrapper |
 | Objective | Show the `bin/judgeloop` wrapper in README and validate it against the demo repo. |
 | Builder | `GPT-5.5 Codex` |
-| Architect checkpoint | `Fable` |
+| Architect checkpoint | `<architect model>` |
 | Human judge | `human` |
 | Frozen gate file | `docs/gates/S-003.md` |
 

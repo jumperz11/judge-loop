@@ -47,4 +47,4 @@
 
 | Date | Change | Approved by | Reason |
 | --- | --- | --- | --- |
-| `2026-06-22` | Added `GET /health` contract. | `Fable` | Required by slice S-001. |
+| `2026-06-22` | Added `GET /health` contract. | `Architect` | Required by slice S-001. |

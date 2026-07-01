@@ -8,7 +8,7 @@
 | Title | |
 | Objective | |
 | Builder | |
-| Architect checkpoint | Fable |
+| Architect checkpoint | |
 | Human judge | |
 | Frozen gate file | docs/gates/<slice>.md |
 

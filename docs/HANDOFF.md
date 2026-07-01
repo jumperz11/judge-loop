@@ -32,7 +32,7 @@
 | Started | `<timestamp>` |
 | Ended | `<timestamp>` |
 | Builder | `<tool/model, e.g. GPT-5.5 Codex / Opus 4.8 / GLM 5.2>` |
-| Architect checkpoint | `Fable` |
+| Architect checkpoint | `<architect model>` |
 | Reviewer result | `APPROVE / DEFECTS / NOT RUN` |
 | Final status | `PASS / FAIL / PARTIAL / UNKNOWN` |
 
@@ -64,7 +64,7 @@
 
 | ID | Raised by | Disagreement | Ruling | Why |
 | --- | --- | --- | --- | --- |
-| `D-001` | `Fable/Builder/Human` | `<text>` | `accept/reject/modify/pending` | `<one line>` |
+| `D-001` | `Architect/Builder/Human` | `<text>` | `accept/reject/modify/pending` | `<one line>` |
 
 ## Open defects
 

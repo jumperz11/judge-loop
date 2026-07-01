@@ -1,4 +1,4 @@
-# Step 1 - Fable (Architect)
+# Step 1 - Architect Model
 
 ## A. STATE FROM MEMORY
 

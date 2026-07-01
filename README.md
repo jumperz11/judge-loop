@@ -1,6 +1,6 @@
 # JudgeLoop
 
-> **Fable decides. A builder builds. The repo remembers. You judge.**
+> **Architect decides. Builder builds. Repo stores proof. Human judges.**
 
 JudgeLoop is a repo-local evidence protocol for AI-built software.
 
@@ -14,8 +14,8 @@ Human judges.
 Use a strong model as the architect and judge. Use any capable LLM as the
 builder. Freeze the gates before coding. Make the builder report raw evidence.
 
-Fable is the recommended architect example. GPT-5.5 Codex is the default
-builder example. The protocol does not depend on either one.
+Fable is one strong architect example. GPT-5.5 Codex is one strong builder
+example. The protocol does not depend on either one.
 
 Codex, Opus, GLM, Kimi, DeepSeek, Qwen, or any other LLM can fill the builder
 role as long as it can edit files, run checks, or produce patches with raw
@@ -58,10 +58,10 @@ Or use the tiny wrapper:
 
 Then:
 
-1. Paste [`prompts/01-fable-architect.md`](prompts/01-fable-architect.md) into your architect model.
+1. Paste [`prompts/01-architect-checkpoint.md`](prompts/01-architect-checkpoint.md) into your architect model.
 2. Paste the returned block into your builder LLM.
 3. Builder writes evidence to `docs/HANDOFF.md` and `docs/lanes/`.
-4. Paste [`prompts/03-fable-review.md`](prompts/03-fable-review.md) into the architect.
+4. Paste [`prompts/03-architect-review.md`](prompts/03-architect-review.md) into the architect.
 5. Architect judges raw evidence against frozen gates and writes the next slice.
 
 That is the loop.
@@ -80,14 +80,15 @@ is optional and still adapter-specific.
 
 ## Why Use This
 
-Fable is strong at judgment, planning, arbitration, and long-horizon review.
-The builder should be whichever LLM is best or cheapest for your current job.
+The architect model should be strong at judgment, planning, arbitration, and
+long-horizon review. The builder should be whichever LLM is best or cheapest
+for your current job.
 
 This loop separates those jobs.
 
 | Bad default | Better loop |
 | --- | --- |
-| One model plans, codes, and grades itself. | Fable judges. A builder builds. |
+| One model plans, codes, and grades itself. | Architect judges. Builder builds. |
 | Success criteria move after seeing results. | Gates freeze before coding. |
 | Context lives in chat scrollback. | State lives in `docs/`. |
 | The builder says "looks good." | The repo stores raw commands and exit codes. |
@@ -135,7 +136,7 @@ The enforcement is intentionally boring:
 | `docs/lanes/<slice>-<lane>.md` | Builder claims without raw evidence. |
 | `docs/HANDOFF.md` | Losing project state in chat history. |
 | `scripts/doctor.py` | Starting a run with missing or placeholder memory. |
-| Fable review prompt | Builder self-grading. |
+| Architect review prompt | Builder self-grading. |
 
 ---
 
@@ -217,20 +218,20 @@ If it says `READY`, start the loop.
 
 ## The Loop
 
-### Step A: Fable architects
+### Step A: Architect model plans
 
-Paste this into Fable:
+Paste this into your architect model:
 
 ```txt
-prompts/01-fable-architect.md
+prompts/01-architect-checkpoint.md
 ```
 
-Fable reads the repo docs, freezes the slice, calls out risks, and ends with a
-paste-ready builder block.
+The architect reads the repo docs, freezes the slice, calls out risks, and ends
+with a paste-ready builder block.
 
 ### Step B: your builder builds
 
-Paste Fable's block into your builder.
+Paste the architect's block into your builder.
 
 The builder must:
 
@@ -242,15 +243,15 @@ The builder must:
 - run tests
 - write raw evidence to `docs/HANDOFF.md` and `docs/lanes/`
 
-### Step C: Fable reviews
+### Step C: Architect reviews
 
-After the builder finishes, paste this into Fable:
+After the builder finishes, paste this into your architect model:
 
 ```txt
-prompts/03-fable-review.md
+prompts/03-architect-review.md
 ```
 
-Give Fable the raw results:
+Give the architect the raw results:
 
 - `docs/HANDOFF.md`
 - `docs/gates/<slice>.md`
@@ -258,13 +259,13 @@ Give Fable the raw results:
 - test output
 - git diff summary
 
-Fable returns:
+The architect returns:
 
 ```txt
 PASS / FAIL / PARTIAL
 ```
 
-Then Fable writes the next slice.
+Then the architect writes the next slice.
 
 Repeat.
 
@@ -305,11 +306,11 @@ python3 scripts/doctor.py examples/demo-run/repo
 
 | File | Purpose |
 | --- | --- |
-| [`prompts/01-fable-architect.md`](prompts/01-fable-architect.md) | Start a Fable checkpoint. |
+| [`prompts/01-architect-checkpoint.md`](prompts/01-architect-checkpoint.md) | Start an architect checkpoint. |
 | [`prompts/02-builder-contract.md`](prompts/02-builder-contract.md) | Base builder contract. Codex is the default example. |
-| [`prompts/03-fable-review.md`](prompts/03-fable-review.md) | Review builder output with Fable. |
+| [`prompts/03-architect-review.md`](prompts/03-architect-review.md) | Review builder output with the architect model. |
 | [`prompts/04-headless-dispatch.md`](prompts/04-headless-dispatch.md) | Optional `codex exec` / worktree adapter. |
-| [`prompts/05-fable-research.md`](prompts/05-fable-research.md) | Optional research checkpoint. |
+| [`prompts/05-research-checkpoint.md`](prompts/05-research-checkpoint.md) | Optional research checkpoint. |
 | [`docs/BUILDERS.md`](docs/BUILDERS.md) | How to use Codex, Opus, GLM, Kimi, DeepSeek, Qwen, or another LLM builder. |
 | [`docs/HANDOFF.md`](docs/HANDOFF.md) | Raw state after every work block. |
 | [`docs/CONTRACTS.md`](docs/CONTRACTS.md) | Frozen APIs, schemas, interfaces, commands. |
@@ -329,8 +330,8 @@ Most people should start with **manual mode**.
 
 | Mode | Use when | How |
 | --- | --- | --- |
-| Manual | You want to watch the run and paste between Fable and your builder. | Fable prompt -> builder run -> Fable review. |
-| Headless | The slice is big enough for unattended or parallel lanes. | Fable writes `.architect/` dispatch blocks; `codex exec` runs per lane. |
+| Manual | You want to watch the run and paste between architect and builder. | architect prompt -> builder run -> architect review. |
+| Headless | The slice is big enough for unattended or parallel lanes. | Architect writes `.architect/` dispatch blocks; `codex exec` runs per lane. |
 
 Manual mode is the product. Headless mode is the Codex adapter.
 
@@ -338,7 +339,7 @@ Manual mode is the product. Headless mode is the Codex adapter.
 
 ## The Rules
 
-1. Fable is for judgment, not typing.
+1. The architect model is for judgment, not typing.
 2. The builder is for building, testing, and evidence.
 3. Repo docs are memory.
 4. The builder never grades its own work.
@@ -346,10 +347,10 @@ Manual mode is the product. Headless mode is the Codex adapter.
 6. Gates freeze before results exist.
 7. Builder edits to frozen gates fail the slice.
 8. Parallel lanes need disjoint file ownership.
-9. If Fable is down or expensive, the builder continues only from frozen specs and records unresolved decisions for the next Fable checkpoint.
+9. If the architect model is down or expensive, the builder continues only from frozen specs and records unresolved decisions for the next architect checkpoint.
 
-That last rule matters. If the workflow dies when Fable is unavailable, you
-built dependency, not leverage.
+That last rule matters. If the workflow dies when the architect model is unavailable, you
+built a dependency, not leverage.
 
 ---
 
@@ -428,15 +429,16 @@ Yes. Codex is the default builder path, not a hard dependency. Use any builder
 that can follow the builder contract: disagree first, touch only declared files,
 run checks, and write raw evidence to `docs/HANDOFF.md` / `docs/lanes/`.
 
-**Why not let Fable code too?**
+**Why not let the architect model code too?**
 
-You can. It is usually a waste. Use Fable where judgment changes the outcome:
-scope, architecture, arbitration, evidence review, and next-slice planning.
+You can. It is usually a waste. Use the architect model where judgment changes
+the outcome: scope, architecture, arbitration, evidence review, and next-slice
+planning.
 
-**What if Fable is limited, down, or expensive?**
+**What if the architect model is limited, down, or expensive?**
 
 The builder continues only from frozen specs. Any strategic decision or unresolved
-disagreement gets written to `docs/HANDOFF.md` for the next Fable checkpoint.
+disagreement gets written to `docs/HANDOFF.md` for the next architect checkpoint.
 
 **Is this tied to one language or framework?**
 

@@ -46,4 +46,4 @@
 
 | Date | Change | Approved by | Reason |
 | --- | --- | --- | --- |
-| `<date>` | `<change>` | `<human/fable>` | `<why>` |
+| `<date>` | `<change>` | `<human/architect>` | `<why>` |

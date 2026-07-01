@@ -7,22 +7,22 @@ description: Run JudgeLoop for software projects. Use when the user wants Claude
 
 Use this skill to run or set up the workflow:
 
-> **Fable decides. The builder builds. The repo remembers. The human judges.**
+> **Architect decides. Builder builds. Repo stores proof. Human judges.**
 
-Fable is used for scarce judgment, not endless typing. The selected builder does
-the sustained execution work and records raw evidence. Codex is the default
-builder path in this kit, but it is not required.
+The architect model is used for scarce judgment, not endless typing. The
+selected builder does the sustained execution work and records raw evidence.
+Codex is the default builder path in this kit, but it is not required.
 
 ## Core rules
 
-1. Fable is for judgment, not typing.
+1. The architect model is for judgment, not typing.
 2. The selected builder is for building, testing, and evidence.
 3. Repo docs are memory. If it is not in `docs/`, treat it as unknown.
 4. Disagreement is mandatory before implementation.
 5. Freeze success criteria before results exist.
 6. Keep work PR-sized.
 7. The builder never grades its own work.
-8. If Fable is unavailable or expensive, the builder continues only from frozen specs and records unresolved decisions for the next Fable checkpoint.
+8. If the architect model is unavailable or expensive, the builder continues only from frozen specs and records unresolved decisions for the next architect checkpoint.
 
 ## Set up a repo
 
@@ -36,11 +36,11 @@ If the repo does not already have memory docs, create:
 - `docs/gates/` - per-slice frozen gates
 - `docs/lanes/` - per-lane raw builder reports
 - `docs/prd/` - optional short product and implementation briefs
-- `docs/research/` - optional Fable-reviewed research reports
+- `docs/research/` - optional architect-reviewed research reports
 
 Use the templates in `references/repo-memory.md` if blank files are needed.
 
-## Run a Fable checkpoint
+## Run an architect checkpoint
 
 Read these files first:
 
@@ -61,7 +61,7 @@ Then produce:
 7. exactly one reviewer lane that writes no feature code
 8. paste-ready builder block
 
-For exact output structure, read `references/fable-architect.md`.
+For exact output structure, read `references/architect-checkpoint.md`.
 
 ## Direct the builder
 
@@ -80,10 +80,11 @@ For the paste-ready builder block, read `references/builder-contract.md`.
 
 ## Use headless dispatch only when it buys something
 
-Manual mode is the default: Fable writes a block and the human pastes it into
-the selected builder.
+Manual mode is the default: the architect writes a block and the human pastes
+it into the selected builder.
 
-For larger Codex slices, Fable may prepare headless `codex exec` dispatch:
+For larger Codex slices, the architect may prepare headless `codex exec`
+dispatch:
 
 1. freeze gates in `docs/gates/<slice>.md`
 2. write builder blocks into `.architect/`
@@ -101,11 +102,11 @@ Do not research every slice. Use research only when the team is deciding what
 to build, choosing technology, or checking facts too large for routine builder
 reality checks.
 
-Builder/researcher LLMs gather. Fable designs lanes, verifies claims, and writes the
-report. Final reports go in `docs/research/`; implementation briefs go in
-`docs/prd/`.
+Builder/researcher LLMs gather. The architect designs lanes, verifies claims,
+and writes the report. Final reports go in `docs/research/`; implementation
+briefs go in `docs/prd/`.
 
-For the procedure, read `references/fable-research.md`.
+For the procedure, read `references/research-checkpoint.md`.
 
 ## Review builder output
 
@@ -119,4 +120,4 @@ When the builder returns results:
 6. accept, modify, or reject unresolved builder decisions
 7. write the next slice or kill/rollback recommendation
 
-For review structure, read `references/fable-review.md`.
+For review structure, read `references/architect-review.md`.

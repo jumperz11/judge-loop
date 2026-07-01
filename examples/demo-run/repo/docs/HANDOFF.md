@@ -31,7 +31,7 @@
 | Started | `2026-07-01 15:50 Africa/Tunis` |
 | Ended | `2026-07-01 15:55 Africa/Tunis` |
 | Builder | `GPT-5.5 Codex` |
-| Architect checkpoint | `Fable` |
+| Architect checkpoint | `<architect model>` |
 | Reviewer result | `APPROVE` |
 | Final status | `PASS` |
 
