@@ -3,8 +3,8 @@
 Use this only after the manual loop works. Headless dispatch is for larger
 slices where unattended Codex CLI runs or parallel lanes are worth the overhead.
 
-This prompt is Codex-specific. For Opus, GLM, Kimi, OpenClaw, or another
-builder, use the generic builder contract in `prompts/02-builder-contract.md`.
+This prompt is Codex-specific. For Opus, GLM, Kimi, DeepSeek, Qwen, or another
+LLM builder, use the generic builder contract in `prompts/02-builder-contract.md`.
 
 You are FABLE, preparing headless Codex dispatch.
 

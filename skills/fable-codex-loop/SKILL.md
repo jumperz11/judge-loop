@@ -1,6 +1,6 @@
 ---
 name: fable-codex-loop
-description: Run the Fable + Builder scarce-architect loop for software projects. Use when the user wants Claude Fable 5 to act as architect, judge, scope killer, or checkpoint; Codex, Opus, GLM, Kimi, OpenClaw, or another coding agent to act as builder; repo docs to act as persistent memory; PR-sized slice planning; mandatory disagreement; frozen contracts; evaluator gates; reviewer lanes; raw handoffs; or a shareable AI-agent workflow.
+description: Run the Fable + Builder scarce-architect loop for software projects. Use when the user wants Claude Fable 5 to act as architect, judge, scope killer, or checkpoint; Codex, Opus, GLM, Kimi, DeepSeek, Qwen, or any other LLM to act as builder; repo docs to act as persistent memory; PR-sized slice planning; mandatory disagreement; frozen contracts; evaluator gates; reviewer lanes; raw handoffs; or a shareable AI workflow.
 ---
 
 # Fable + Builder Loop
@@ -101,7 +101,7 @@ Do not research every slice. Use research only when the team is deciding what
 to build, choosing technology, or checking facts too large for routine builder
 reality checks.
 
-Builder/researcher agents gather. Fable designs lanes, verifies claims, and writes the
+Builder/researcher LLMs gather. Fable designs lanes, verifies claims, and writes the
 report. Final reports go in `docs/research/`; implementation briefs go in
 `docs/prd/`.
 

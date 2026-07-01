@@ -2,13 +2,13 @@
 
 > **Fable decides. A builder builds. The repo remembers. You judge.**
 
-Use Claude Fable 5 as the architect and judge. Use any capable coding agent as
-the builder. GPT-5.5 Codex is the default because it is fast, strong in the
+Use Claude Fable 5 as the architect and judge. Use any capable LLM as the
+builder. GPT-5.5 Codex is the default example because it is fast, strong in the
 terminal, and easy to run on a subscription, but the loop does not depend on one
 builder model.
 
-Codex, Opus, GLM, Kimi, local agents, OpenClaw, or another coding lane can fill
-the builder role as long as it can edit files, run checks, and write raw
+Codex, Opus, GLM, Kimi, DeepSeek, Qwen, or any other LLM can fill the builder
+role as long as it can edit files, run checks, or produce patches with raw
 evidence back to the repo.
 
 [![Repo](https://img.shields.io/badge/GitHub-jumperz11%2Ffable--codex--loop-181717?logo=github)](https://github.com/jumperz11/fable-codex-loop)
@@ -35,8 +35,7 @@ deciding what deserves to be typed.
 ## Why Use This
 
 Fable is strong at judgment, planning, arbitration, and long-horizon review.
-The builder should be whatever coding agent is best or cheapest for your current
-job.
+The builder should be whichever LLM is best or cheapest for your current job.
 
 This loop separates those jobs.
 
@@ -192,7 +191,7 @@ Repeat.
 | [`prompts/03-fable-review.md`](prompts/03-fable-review.md) | Review builder output with Fable. |
 | [`prompts/04-headless-dispatch.md`](prompts/04-headless-dispatch.md) | Optional `codex exec` / worktree adapter. |
 | [`prompts/05-fable-research.md`](prompts/05-fable-research.md) | Optional research checkpoint. |
-| [`docs/BUILDERS.md`](docs/BUILDERS.md) | How to use Codex, Opus, GLM, Kimi, or another builder. |
+| [`docs/BUILDERS.md`](docs/BUILDERS.md) | How to use Codex, Opus, GLM, Kimi, DeepSeek, Qwen, or another LLM builder. |
 | [`docs/HANDOFF.md`](docs/HANDOFF.md) | Raw state after every work block. |
 | [`docs/CONTRACTS.md`](docs/CONTRACTS.md) | Frozen APIs, schemas, interfaces, commands. |
 | [`docs/EVALS.md`](docs/EVALS.md) | Scoreboard for success gates. |
@@ -300,7 +299,7 @@ No by default. The intended flow uses subscriptions. The headless mode can use
 No. The roles matter more than the names. But a separate architect/judge model
 helps because the builder does not get to grade itself.
 
-**Can I use Opus, GLM, Kimi, or another builder instead of Codex?**
+**Can I use Opus, GLM, Kimi, DeepSeek, Qwen, or another LLM instead of Codex?**
 
 Yes. Codex is the default builder path, not a hard dependency. Use any builder
 that can follow the builder contract: disagree first, touch only declared files,

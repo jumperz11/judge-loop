@@ -1,4 +1,4 @@
 interface:
   display_name: "Fable Builder Loop"
-  short_description: "Run Fable as architect/judge and any coding agent as builder with repo memory."
+  short_description: "Run Fable as architect/judge and any LLM as builder with repo memory."
   default_prompt: "Set up or run the Fable + Builder scarce-architect loop for this repo."

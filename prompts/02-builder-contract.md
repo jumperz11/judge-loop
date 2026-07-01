@@ -1,7 +1,7 @@
 # Prompt 02 - Builder Contract
 
 This is the base block Fable should adapt and paste to the selected builder.
-Codex is the default example, but any capable coding agent can use this
+Codex is the default example, but any capable LLM builder can use this
 contract.
 
 ```txt
