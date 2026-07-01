@@ -80,5 +80,5 @@ For every other builder, use the normal manual loop:
 Fable architect prompt -> builder contract -> Fable review prompt
 ```
 
-The loop is model-agnostic. The enforcement comes from repo memory, frozen
-gates, lane reports, and human judgment.
+The builder path is flexible. The proof comes from repo memory, frozen gates,
+lane reports, and human judgment.

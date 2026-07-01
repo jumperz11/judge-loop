@@ -117,7 +117,7 @@ Use it when:
 
 ---
 
-## What JudgeLoop Enforces
+## What JudgeLoop Checks
 
 ```mermaid
 flowchart TD
@@ -128,7 +128,7 @@ flowchart TD
     H --> J["Architect review<br/>PASS / FAIL / PARTIAL"]
 ```
 
-The enforcement is intentionally boring:
+The checks are intentionally boring:
 
 | Artifact | What it prevents |
 | --- | --- |
